@@ -10,12 +10,12 @@
 <!--```{tableofcontents}-->
 <!--```-->
 
-## Selamat Datang di Halaman Tugas
-## Project Akhir Pemrosesan Bahasa Alami A
+### Selamat Datang di Halaman Tugas
+### Project Akhir Pemrosesan Bahasa Alami A
 
-## Dosen Pengampu : Dr. FIKA HASTARITA RACHMAN, ST., M.Eng
+### Dosen Pengampu : Dr. FIKA HASTARITA RACHMAN, ST., M.Eng
 
-### Kelompok : 5
+#### Kelompok : 5
 
 - Hambali Fitrianto (200411100074)
 - Pramudys Dwi Febrianto (200411100042)
