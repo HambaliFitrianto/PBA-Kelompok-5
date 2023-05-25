@@ -10,13 +10,10 @@
 <!--```{tableofcontents}-->
 <!--```-->
 
-## Selamat Datang di Halaman Tugas
-## Project Akhir Pemrosesan Bahasa Alami A
+# ANALISIS SENTIMEN PADA WISATA DIENG DENGAN ALGORITMA K-NEAREST NEIGHBOR (K-NN)
 
 ## Dosen Pengampu :
 ## Dr. FIKA HASTARITA RACHMAN, ST., M.Eng
-
-### ANALISIS SENTIMEN PADA WISATA DIENG DENGAN ALGORITMA K-NEAREST NEIGHBOR (K-NN)
 
 ### Kelompok : 5
 
