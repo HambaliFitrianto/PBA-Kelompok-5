@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Selamat Datang di Halaman Tugas
+                    ANALISIS SENTIMEN PADA WISATA DIENG DENGAN ALGORITMA K-NEAREST NEIGHBOR (K-NN)
                 </a>
             </li>
         </ul>
@@ -422,6 +422,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-knn">Modelling (KNN)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-data-latih-dan-data-uji-80-20">Pembagian Data Latih dan Data Uji (80:20)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-data-latih-dan-data-uji-70-30">Pembagian Data Latih dan Data Uji (70:30)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-data-latih-dan-data-uji-60-40">Pembagian Data Latih dan Data Uji (60:40)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-akurasi">Menghitung akurasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-label-prediksi">Menampilkan label prediksi</a></li>
 </ul>
@@ -469,7 +472,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5fad4f2a-794b-4314-b344-a434dd25e104">
+  <div id="df-b4aaf31c-41a3-45ab-86c9-3029453c8004">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -564,7 +567,7 @@ document.write(`
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-5fad4f2a-794b-4314-b344-a434dd25e104')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b4aaf31c-41a3-45ab-86c9-3029453c8004')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -615,12 +618,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-5fad4f2a-794b-4314-b344-a434dd25e104 button.colab-df-convert');
+          document.querySelector('#df-b4aaf31c-41a3-45ab-86c9-3029453c8004 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-5fad4f2a-794b-4314-b344-a434dd25e104');
+          const element = document.querySelector('#df-b4aaf31c-41a3-45ab-86c9-3029453c8004');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -781,6 +784,10 @@ Name: ulasan, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tokenizing Result : 
 
 0    [keadaan, kota, kecil, ini, tenang, dg, udara,...
@@ -789,10 +796,6 @@ Name: ulasan, dtype: object
 3    [dieng, adalah, dataran tinggi, dan, terkenal,...
 4    [selain, suhunya, yang, dingin, wisata, candi,...
 Name: ulasan_tokens, dtype: object
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Package punkt is already up-to-date!
 </pre></div>
 </div>
 </div>
@@ -877,16 +880,16 @@ Name: ulasan_tokens_fdist, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
-[nltk_data]   Package stopwords is already up-to-date!
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    [kota, tenang, udara, sejuk, mengunjungi, meni...
 1    [terletak, jawa tengah, dataran tinggi, dieng,...
 2    [dieng, nice, weather, good, athmosphere, peng...
 3    [dieng, dataran tinggi, terkenal, negeri, awan...
 4    [suhunya, dingin, wisata, candi, kawah, sikida...
 Name: ulasan_tokens_WSW, dtype: object
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Unzipping corpora/stopwords.zip.
 </pre></div>
 </div>
 </div>
@@ -899,7 +902,20 @@ Name: ulasan_tokens_WSW, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: swifter in /usr/local/lib/python3.10/dist-packages (1.3.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting swifter
+  Downloading swifter-1.3.4.tar.gz (830 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/830.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">194.6/830.9 kB</span> <span class=" -Color -Color-Red">5.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">829.4/830.9 kB</span> <span class=" -Color -Color-Red">14.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">829.4/830.9 kB</span> <span class=" -Color -Color-Red">14.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">829.4/830.9 kB</span> <span class=" -Color -Color-Red">14.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">830.9/830.9 kB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l?25hdone
 Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.10/dist-packages (from swifter) (1.5.3)
 Requirement already satisfied: psutil&gt;=5.6.6 in /usr/local/lib/python3.10/dist-packages (from swifter) (5.9.5)
 Requirement already satisfied: dask[dataframe]&gt;=2.10.0 in /usr/local/lib/python3.10/dist-packages (from swifter) (2022.12.1)
@@ -927,9 +943,7 @@ Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/pytho
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2022.7.1)
 Requirement already satisfied: jupyter-client in /usr/local/lib/python3.10/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.1.12)
 Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.10/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.3.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.10/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (67.7.2)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.10/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (67.7.2)
 Requirement already satisfied: jedi&gt;=0.16 in /usr/local/lib/python3.10/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.18.2)
 Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.4.2)
 Requirement already satisfied: pickleshare in /usr/local/lib/python3.10/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.5)
@@ -940,7 +954,9 @@ Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.10/di
 Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.10/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.8.0)
 Requirement already satisfied: locket in /usr/local/lib/python3.10/dist-packages (from partd&gt;=0.3.10-&gt;dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.0.0)
 Requirement already satisfied: notebook&gt;=4.4.1 in /usr/local/lib/python3.10/dist-packages (from widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.4.8)
-Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.1.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jinja2 in /usr/local/lib/python3.10/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.1.2)
 Requirement already satisfied: pyzmq&gt;=17 in /usr/local/lib/python3.10/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (23.2.1)
 Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.10/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.3.0)
 Requirement already satisfied: jupyter-core&gt;=4.6.1 in /usr/local/lib/python3.10/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.3.0)
@@ -953,11 +969,11 @@ Requirement already satisfied: prometheus-client in /usr/local/lib/python3.10/di
 Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from pexpect&gt;4.3-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.0)
 Requirement already satisfied: wcwidth in /usr/local/lib/python3.10/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.6)
 Requirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from jupyter-core&gt;=4.6.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.3.0)
+Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.10/dist-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.2.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.1.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.10/dist-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.2.0)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.1.2)
-Requirement already satisfied: lxml in /usr/local/lib/python3.10/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.9.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lxml in /usr/local/lib/python3.10/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.9.2)
 Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.11.2)
 Requirement already satisfied: defusedxml in /usr/local/lib/python3.10/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.1)
 Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.10/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.4)
@@ -972,9 +988,18 @@ Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.10/dis
 Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in /usr/local/lib/python3.10/dist-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.19.3)
 Requirement already satisfied: cffi&gt;=1.0.1 in /usr/local/lib/python3.10/dist-packages (from argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.15.1)
 Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.4.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.21)
+Building wheels for collected packages: swifter
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.21)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for swifter (setup.py) ... ?25l?25hdone
+  Created wheel for swifter: filename=swifter-1.3.4-py3-none-any.whl size=16299 sha256=f765f8d49a16dedd11b0cd29e4c3196fee3717025af25dd0c3feca907733f7e2
+  Stored in directory: /root/.cache/pip/wheels/6c/bd/3e/2d6afc9bc36c9975f8e4215a270bbac6580c4361ebd6bb2323
+Successfully built swifter
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: swifter
+Successfully installed swifter-1.3.4
 </pre></div>
 </div>
 </div>
@@ -987,7 +1012,21 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: Sastrawi in /usr/local/lib/python3.10/dist-packages (1.0.1)
+Collecting Sastrawi
+  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
+?25l
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ <span class=" -Color -Color-Green">174.1/209.7 kB</span> <span class=" -Color -Color-Red">5.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">4.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: Sastrawi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed Sastrawi-1.0.1
 </pre></div>
 </div>
 </div>
@@ -1273,23 +1312,26 @@ lumayan : lumayan
 pergi : pergi
 obyek : obyek
 dimiliki : milik
-pemerintah : perintah
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mengutip : kutip
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pemerintah : perintah
+mengutip : kutip
 biaya : biaya
 pendapatan : dapat
-pemda : pemda
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>berkaitan : kait
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pemda : pemda
+berkaitan : kait
 membentuk : bentuk
 badan : badan
 turis : turis
 ringan : ringan
 oh : oh
 asing : asing
-mahal : mahal
+mahal
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> : mahal
 kali : kali
 lipat : lipat
 orang : orang
@@ -1297,12 +1339,16 @@ kesana : kesana
 mencari : cari
 panas : panas
 hangat : hangat
-plateautelaga : plateautelaga
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>plateautelaga : plateautelaga
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warnakawah : warnakawah
 and : and
-many : many
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>many : many
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>moredan : moredan
@@ -1314,7 +1360,9 @@ rekomendasi : rekomendasi
 deh : deh
 menempuh : tempuh
 km : km
-depok : depok
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>depok : depok
 pegunungan : gunung
 jalan : jalan
 </pre></div>
@@ -1328,7 +1376,9 @@ tersendiri : sendiri
 pulang : pulang
 tuban : tuban
 jarang : jarang
-menyusuri : susur
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>menyusuri : susur
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>merbabu : merbabu
@@ -1337,11 +1387,15 @@ berlibur : libur
 terbaik : baik
 pulau : pulau
 jawa : jawa
-spot : spot
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>spot : spot
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>angle : angle
-photo : photo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>photo : photo
 menarik : tarik
 parkir : parkir
 </pre></div>
@@ -1355,7 +1409,9 @@ pagi : pagi
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>walo : walo
-ngantuk : ngantuk
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ngantuk : ngantuk
 gw : gw
 berusaha : usaha
 </pre></div>
@@ -1366,25 +1422,21 @@ lelah : lelah
 hayati : hayati
 terbayar : bayar
 menyaksikan : saksi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kebesaran : besar
+kebesaran : besar
 allah : allah
 swt : swt
 terharu : haru
-kelen : kelen
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nyesel : nyesel
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kelen : kelen
+nyesel : nyesel
 liburan : libur
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>guys : guys
 objek : objek
 wisatanya : wisata
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>telogo : telogo
+telogo : telogo
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warno : warno
@@ -1402,9 +1454,7 @@ bermakna : makna
 dewa : dewa
 dewi : dewi
 bersemayam : semayam
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wikipedia : wikipedia
+wikipedia : wikipedia
 khas : khas
 </pre></div>
 </div>
@@ -1416,9 +1466,7 @@ sekedar : dar
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jalanjalan : jalanjalan
 belanja : belanja
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>oleholeh : oleholeh
+oleholeh : oleholeh
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>souvenir : souvenir
@@ -1427,9 +1475,7 @@ tangan : tangan
 terkadang : terkadang
 menjual : jual
 bunga : bunga
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>edelweiss : edelweiss
+edelweiss : edelweiss
 tersedia : sedia
 penginapan : inap
 berkonsep : konsep
@@ -1455,9 +1501,7 @@ pengunjung : unjung
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wisatawan : wisatawan
 homestay : homestay
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pa : pa
+pa : pa
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>medi : medi
@@ -1508,10 +1552,9 @@ scooter : scooter
 keindahan : indah
 view : view
 diatas : atas
-berjanji
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> : janji
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>berjanji : janji
 berkunjung : kunjung
 disana : sana
 tetep : tetep
@@ -1605,17 +1648,15 @@ sajasudah : sajasudah
 langsung : langsung
 beli : beli
 sikidangkarena : sikidangkarena
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>menunjukannyaanda : menunjukannyaanda
+menunjukannyaanda : menunjukannyaanda
 dipungut : pungut
 lg : lg
-rprb : rprb
-khusus : khusus
-th : th
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bawahmasih : bawahmasih
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rprb : rprb
+khusus : khusus
+th : th
+bawahmasih : bawahmasih
 gratiskan : gratis
 </pre></div>
 </div>
@@ -1711,7 +1752,9 @@ uap : uap
 air : air
 lumpur : lumpur
 mendidih : didih
-dijumpai : jumpa
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dijumpai : jumpa
 bangunan : bangun
 </pre></div>
 </div>
@@ -1720,7 +1763,9 @@ dianggap : anggap
 tertua : tua
 indonesia : indonesia
 berdasarkan : dasar
-peninggalan : tinggal
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>peninggalan : tinggal
 prasasti : prasasti
 cantik : cantik
 menampilkan : tampil
@@ -1738,7 +1783,9 @@ gn : gn
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>menjelajahii : menjelajahii
 enak : enak
-terjangaku : terjangaku
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>terjangaku : terjangaku
 pas : pas
 agustus : agustus
 rugi : rugi
@@ -1747,7 +1794,10 @@ eksotis : eksotis
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>siao : siao
-menjamu : jamu
+menjamu
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> : jamu
 berjejer : jejer
 jumat : jumat
 sabtu : sabtu
@@ -1766,7 +1816,9 @@ minim : minim
 desa : desa
 tertinggi : tinggi
 sungguh : sungguh
-menawan : tawan
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>menawan : tawan
 ditingkatkan : tingkat
 pengelolaannya : kelola
 cocok : cocok
@@ -1774,17 +1826,19 @@ cocok : cocok
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>honeymoonfamily : honeymoonfamily
 gatheringdll : gatheringdll
-elf : elf
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pribadiberangkat : pribadiberangkat
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>elf : elf
+pribadiberangkat : pribadiberangkat
 kehalang : halang
-kabutsikunirsikidanggunung : kabutsikunirsikidanggunung
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prautelaga : prautelaga
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kabutsikunirsikidanggunung : kabutsikunirsikidanggunung
+prautelaga : prautelaga
 destinasi : destinasi
-tersebar : sebar
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tersebar : sebar
 pembangkit : bangkit
 listrik : listrik
 informasi : informasi
@@ -1793,38 +1847,28 @@ youtube : youtube
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>channel : channel
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alfalegro : alfalegro
+alfalegro : alfalegro
 adem : adem
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>liburanbamyak : liburanbamyak
 pilihan : pilih
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kunjungieasy : kunjungieasy
+kunjungieasy : kunjungieasy
 get : get
 but : but
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>always : always
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>busy : busy
+busy : busy
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>when : when
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>holiday : holiday
+holiday : holiday
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>timeso : timeso
 pesen : sen
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hirukpikuk : hirukpikuk
+hirukpikuk : hirukpikuk
 keramaian : ramai
 berkisar : kisar
 siangnya : siang
@@ -1851,41 +1895,13 @@ turun : turun
 disewakan : sewa
 losmen : losmen
 tradisional : tradisional
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>purwaceng : purwaceng
+purwaceng : purwaceng
 minuman : minum
 kesehatan : sehat
 berangkatnya : berangkat
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>purwokerto : purwokerto
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>banjarnegara : banjarnegara
-pulangnya : pulang
-cepat : cepat
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sikembang : sikembang
-pastikan : pasti
-membawa : bawa
-kadang : kadang
-menciptakan : cipta
-salju : salju
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ketulungan : ketulungan
-alias : alias
-ampun : ampun
-seharian : hari
-laut : laut
-empunya : empunya
-kemarin : kemarin
-cinta : cinta
-menyebrang : menyebrang
-sempatkan : sempat
-pantai : pantai
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
@@ -1953,11 +1969,25 @@ pantai : pantai
 <span class="g g-Whitespace">     </span><span class="mi">91</span>                 <span class="k">return</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">accept_prefix_visitors</span><span class="nt">(self, visitors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">removalCount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">removals</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">109</span>         <span class="k">for</span> <span class="n">visitor</span> <span class="ow">in</span> <span class="n">visitors</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">111</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">110</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">112</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_word</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_is_stopped</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">accept</span><span class="nt">(self, visitor)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> 
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>         <span class="n">visitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> 
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">def</span> <span class="nf">accept_visitors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitors</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Visitor/AbstractDisambiguatePrefixRule.py</span> in <span class="ni">visit</span><span class="nt">(self, context)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="k">for</span> <span class="n">disambiguator</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">disambiguators</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">disambiguator</span><span class="o">.</span><span class="n">disambiguate</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">current_word</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">15</span>             <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>                 <span class="k">break</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2375,8 +2405,12 @@ Name: ulasan_tokens_stemmed, Length: 238, dtype: object
 <span class="n">ulasan</span> <span class="o">=</span> <span class="n">Data_ulasan</span><span class="p">[</span><span class="s1">&#39;ulasan&#39;</span><span class="p">]</span>
 <span class="n">sentimen</span> <span class="o">=</span> <span class="n">Data_ulasan</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
 
-<span class="c1"># Membagi dataset menjadi data latih dan data uji</span>
+<span class="c1"># Membagi dataset menjadi data latih dan data uji 80:20</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">ulasan</span><span class="p">,</span> <span class="n">sentimen</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># Membagi dataset menjadi data latih dan data uji 70:30</span>
+<span class="n">X_train1</span><span class="p">,</span> <span class="n">X_test1</span><span class="p">,</span> <span class="n">y_train1</span><span class="p">,</span> <span class="n">y_test1</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">ulasan</span><span class="p">,</span> <span class="n">sentimen</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># Membagi dataset menjadi data latih dan data uji 60:40</span>
+<span class="n">X_train2</span><span class="p">,</span> <span class="n">X_test2</span><span class="p">,</span> <span class="n">y_train2</span><span class="p">,</span> <span class="n">y_test2</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">ulasan</span><span class="p">,</span> <span class="n">sentimen</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2531,14 +2565,32 @@ type :  &lt;class &#39;list&#39;&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung TF-IDF untuk data latih</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung TF-IDF untuk data latih 80:20</span>
 <span class="n">tf_train</span> <span class="o">=</span> <span class="n">calculate_tf</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 <span class="n">idf_train</span> <span class="o">=</span> <span class="n">calculate_idf</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 <span class="n">tfidf_train</span> <span class="o">=</span> <span class="n">calculate_tfidf</span><span class="p">(</span><span class="n">tf_train</span><span class="p">,</span> <span class="n">idf_train</span><span class="p">)</span>
 
-<span class="c1"># Menghitung TF-IDF untuk data uji</span>
+<span class="c1"># Menghitung TF-IDF untuk data uji 80:20</span>
 <span class="n">tf_test</span> <span class="o">=</span> <span class="n">calculate_tf</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">tfidf_test</span> <span class="o">=</span> <span class="n">calculate_tfidf</span><span class="p">(</span><span class="n">tf_test</span><span class="p">,</span> <span class="n">idf_train</span><span class="p">)</span>
+
+<span class="c1"># Menghitung TF-IDF untuk data latih 70:30</span>
+<span class="n">tf_train1</span> <span class="o">=</span> <span class="n">calculate_tf</span><span class="p">(</span><span class="n">X_train1</span><span class="p">)</span>
+<span class="n">idf_train1</span> <span class="o">=</span> <span class="n">calculate_idf</span><span class="p">(</span><span class="n">X_train1</span><span class="p">)</span>
+<span class="n">tfidf_train1</span> <span class="o">=</span> <span class="n">calculate_tfidf</span><span class="p">(</span><span class="n">tf_train1</span><span class="p">,</span> <span class="n">idf_train1</span><span class="p">)</span>
+
+<span class="c1"># Menghitung TF-IDF untuk data uji 70:30</span>
+<span class="n">tf_test1</span> <span class="o">=</span> <span class="n">calculate_tf</span><span class="p">(</span><span class="n">X_test1</span><span class="p">)</span>
+<span class="n">tfidf_test1</span> <span class="o">=</span> <span class="n">calculate_tfidf</span><span class="p">(</span><span class="n">tf_test1</span><span class="p">,</span> <span class="n">idf_train1</span><span class="p">)</span>
+
+<span class="c1"># Menghitung TF-IDF untuk data latih 60:40</span>
+<span class="n">tf_train2</span> <span class="o">=</span> <span class="n">calculate_tf</span><span class="p">(</span><span class="n">X_train2</span><span class="p">)</span>
+<span class="n">idf_train2</span> <span class="o">=</span> <span class="n">calculate_idf</span><span class="p">(</span><span class="n">X_train2</span><span class="p">)</span>
+<span class="n">tfidf_train2</span> <span class="o">=</span> <span class="n">calculate_tfidf</span><span class="p">(</span><span class="n">tf_train2</span><span class="p">,</span> <span class="n">idf_train2</span><span class="p">)</span>
+
+<span class="c1"># Menghitung TF-IDF untuk data uji 60:40</span>
+<span class="n">tf_test2</span> <span class="o">=</span> <span class="n">calculate_tf</span><span class="p">(</span><span class="n">X_test2</span><span class="p">)</span>
+<span class="n">tfidf_test2</span> <span class="o">=</span> <span class="n">calculate_tfidf</span><span class="p">(</span><span class="n">tf_test2</span><span class="p">,</span> <span class="n">idf_train2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -11910,6 +11962,8 @@ tengah&#39;]: 5.247024072160486
 </div>
 </div>
 </div>
+<div class="section" id="pembagian-data-latih-dan-data-uji-80-20">
+<h2>Pembagian Data Latih dan Data Uji (80:20)<a class="headerlink" href="#pembagian-data-latih-dan-data-uji-80-20" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_vector</span> <span class="o">=</span> <span class="p">[</span><span class="n">text_to_vector</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tfidf_train</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">X_train</span><span class="p">]</span>
@@ -11917,13 +11971,126 @@ tengah&#39;]: 5.247024072160486
 
 <span class="c1"># Inisialisasi objek KNeighborsClassifier</span>
 <span class="n">knn_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">knn_classifier1</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">knn_classifier2</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">knn_classifier3</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 
 <span class="c1"># Melatih model KNN dengan data latih</span>
 <span class="n">knn_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">knn_classifier1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">knn_classifier2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">knn_classifier3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Melakukan prediksi pada data uji</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector</span><span class="p">)</span>
+<span class="n">y_pred1</span> <span class="o">=</span> <span class="n">knn_classifier1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector</span><span class="p">)</span>
+<span class="n">y_pred2</span> <span class="o">=</span> <span class="n">knn_classifier2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector</span><span class="p">)</span>
+<span class="n">y_pred3</span> <span class="o">=</span> <span class="n">knn_classifier3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung akurasi model dengan membandingkan label yang sebenarnya (y_test) dengan label yang diprediksi (y_pred) dari data uji.</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=5: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=3: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=7: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=9: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pembagian-data-latih-dan-data-uji-70-30">
+<h2>Pembagian Data Latih dan Data Uji (70:30)<a class="headerlink" href="#pembagian-data-latih-dan-data-uji-70-30" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_vector1</span> <span class="o">=</span> <span class="p">[</span><span class="n">text_to_vector</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tfidf_train1</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">X_train1</span><span class="p">]</span>
+<span class="n">X_test_vector1</span> <span class="o">=</span> <span class="p">[</span><span class="n">text_to_vector</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tfidf_train1</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">X_test1</span><span class="p">]</span>
+
+<span class="c1"># Inisialisasi objek KNeighborsClassifier</span>
+<span class="n">knn_classifier4</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">knn_classifier5</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">knn_classifier6</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">knn_classifier7</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Melatih model KNN dengan data latih</span>
+<span class="n">knn_classifier4</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector1</span><span class="p">,</span> <span class="n">y_train1</span><span class="p">)</span>
+<span class="n">knn_classifier5</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector1</span><span class="p">,</span> <span class="n">y_train1</span><span class="p">)</span>
+<span class="n">knn_classifier6</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector1</span><span class="p">,</span> <span class="n">y_train1</span><span class="p">)</span>
+<span class="n">knn_classifier7</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector1</span><span class="p">,</span> <span class="n">y_train1</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">y_pred4</span> <span class="o">=</span> <span class="n">knn_classifier4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector1</span><span class="p">)</span>
+<span class="n">y_pred5</span> <span class="o">=</span> <span class="n">knn_classifier5</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector1</span><span class="p">)</span>
+<span class="n">y_pred6</span> <span class="o">=</span> <span class="n">knn_classifier6</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector1</span><span class="p">)</span>
+<span class="n">y_pred7</span> <span class="o">=</span> <span class="n">knn_classifier7</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung akurasi model dengan membandingkan label yang sebenarnya (y_test) dengan label yang diprediksi (y_pred) dari data uji.</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test1</span><span class="p">,</span> <span class="n">y_pred4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=5: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test1</span><span class="p">,</span> <span class="n">y_pred5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=3: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test1</span><span class="p">,</span> <span class="n">y_pred6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=7: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test1</span><span class="p">,</span> <span class="n">y_pred7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=9: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pembagian-data-latih-dan-data-uji-60-40">
+<h2>Pembagian Data Latih dan Data Uji (60:40)<a class="headerlink" href="#pembagian-data-latih-dan-data-uji-60-40" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_vector2</span> <span class="o">=</span> <span class="p">[</span><span class="n">text_to_vector</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tfidf_train2</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">X_train2</span><span class="p">]</span>
+<span class="n">X_test_vector2</span> <span class="o">=</span> <span class="p">[</span><span class="n">text_to_vector</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tfidf_train2</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">X_test2</span><span class="p">]</span>
+
+<span class="c1"># Inisialisasi objek KNeighborsClassifier</span>
+<span class="n">knn_classifier8</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">knn_classifier9</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">knn_classifier10</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">knn_classifier11</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Melatih model KNN dengan data latih</span>
+<span class="n">knn_classifier8</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector2</span><span class="p">,</span> <span class="n">y_train2</span><span class="p">)</span>
+<span class="n">knn_classifier9</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector2</span><span class="p">,</span> <span class="n">y_train2</span><span class="p">)</span>
+<span class="n">knn_classifier10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector2</span><span class="p">,</span> <span class="n">y_train2</span><span class="p">)</span>
+<span class="n">knn_classifier11</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vector2</span><span class="p">,</span> <span class="n">y_train2</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">y_pred8</span> <span class="o">=</span> <span class="n">knn_classifier8</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector2</span><span class="p">)</span>
+<span class="n">y_pred9</span> <span class="o">=</span> <span class="n">knn_classifier9</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector2</span><span class="p">)</span>
+<span class="n">y_pred10</span> <span class="o">=</span> <span class="n">knn_classifier10</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector2</span><span class="p">)</span>
+<span class="n">y_pred11</span> <span class="o">=</span> <span class="n">knn_classifier11</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_vector2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung akurasi model dengan membandingkan label yang sebenarnya (y_test) dengan label yang diprediksi (y_pred) dari data uji.</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test2</span><span class="p">,</span> <span class="n">y_pred8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=5: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test2</span><span class="p">,</span> <span class="n">y_pred9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=3: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test2</span><span class="p">,</span> <span class="n">y_pred10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=7: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test2</span><span class="p">,</span> <span class="n">y_pred11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi dengan nilai k=9: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -12265,6 +12432,9 @@ Label: negative
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-knn">Modelling (KNN)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-data-latih-dan-data-uji-80-20">Pembagian Data Latih dan Data Uji (80:20)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-data-latih-dan-data-uji-70-30">Pembagian Data Latih dan Data Uji (70:30)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-data-latih-dan-data-uji-60-40">Pembagian Data Latih dan Data Uji (60:40)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-akurasi">Menghitung akurasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-label-prediksi">Menampilkan label prediksi</a></li>
 </ul>
